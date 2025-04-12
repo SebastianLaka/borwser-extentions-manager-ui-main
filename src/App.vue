@@ -1,11 +1,17 @@
 <script setup>
-import HeaderApp from './components/HeaderApp.vue';
+import HeaderApp from './components/HeaderApp.vue'
 </script>
 
 <template>
- <HeaderApp/>
+  <HeaderApp />
 </template>
 
-<style scoped>
-
+<style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 </style>
