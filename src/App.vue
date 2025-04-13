@@ -9,20 +9,9 @@ import HeaderApp from './components/HeaderApp.vue'
 </template>
 
 <style>
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import "./assets/reset.scss";
+@import "./assets/wrapper.scss";
 body{
     padding: 0 .5em
-}
-.wrapper{
-    max-width: 90.5em;
-    width: 100%;
-    margin: 0 auto;
-    padding: 1em 0;
 }
 </style>
