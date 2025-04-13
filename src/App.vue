@@ -9,8 +9,8 @@ import HeaderApp from './components/HeaderApp.vue'
 </template>
 
 <style>
-@import "./assets/reset.scss";
-@import "./assets/wrapper.scss";
+@import "./assets/sass/reset.scss";
+@import "./assets/sass/wrapper.scss";
 body{
     padding: 0 .5em
 }

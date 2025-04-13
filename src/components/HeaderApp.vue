@@ -6,7 +6,7 @@
   </div>
 </template>
 <style scoped lang="scss">
-@import '../assets/colors.scss';
+@import '../assets/sass/colors.scss';
 // /* - **Neutral 900**: `hsl(227, 75%, 14%)`
 // - **Neutral 800**: `hsl(226, 25%, 17%)`
 // - **Neutral 700**: `hsl(225, 23%, 24%)`
@@ -26,6 +26,7 @@ $header-border-radious: 1em;
     padding: 0.5em;
     border-radius: $header-border-radious;
     border: none;
+    background-color: #fff;
     cursor: pointer;
   }
 }
