@@ -12,6 +12,7 @@ import HeaderApp from './components/HeaderApp.vue'
 @import "./assets/sass/reset.scss";
 @import "./assets/sass/wrapper.scss";
 body{
-    padding: 0 .5em
+    padding: 0 .5em;
+    font-family: 'Noto sans', sans-serif;
 }
 </style>
