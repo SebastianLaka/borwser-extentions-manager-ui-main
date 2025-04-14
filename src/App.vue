@@ -1,10 +1,12 @@
 <script setup>
-import HeaderApp from './components/HeaderApp.vue'
+import HeaderApp from './components/HeaderApp.vue';
+import NavApp from './components/NavApp.vue';
 </script>
 
 <template>
   <div class="wrapper">
     <HeaderApp />
+    <NavApp/>
   </div>
 </template>
 
