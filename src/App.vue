@@ -4,10 +4,10 @@ import NavApp from './components/NavApp.vue';
 </script>
 
 <template>
-  <div class="wrapper">
+  <main class="wrapper">
     <HeaderApp />
     <NavApp/>
-  </div>
+  </main>
 </template>
 
 <style>
