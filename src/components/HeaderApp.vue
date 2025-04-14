@@ -6,21 +6,23 @@
   </header>
 </template>
 <style scoped lang="scss">
-@import "../assets/sass/colors.scss";
-@import "../assets/sass/border.scss";
+@import '../assets/sass/colors.scss';
+@import '../assets/sass/border.scss';
 $header-border-radious: 1em;
-.ui-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 1em;
-  border: $header-border;
-  border-radius: $header-border-radious;
-  &__btn {
-    padding: 0.5em;
+@media (min-width: 20em) {
+  .ui-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    border: $header-border;
     border-radius: $header-border-radious;
-    border: none;
-    background-color: #fff;
-    cursor: pointer;
+    &__btn {
+      padding: 0.5em;
+      border-radius: $header-border-radious;
+      border: none;
+      background-color: #fff;
+      cursor: pointer;
+    }
   }
 }
 </style>
