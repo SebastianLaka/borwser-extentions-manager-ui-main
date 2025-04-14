@@ -7,11 +7,13 @@
             <button class="ui-nav-button__active">Active</button>
             <button class="ui-nav-button__inactive">Inactive</button>
         </div>
+        
     </nav>
 </template>
 <style scoped lang="scss">
 @import '../assets/sass/colors.scss';
 @import '../assets/sass/border.scss';
+@import "../assets/sass/mixins.scss";
 @media (min-width: 20em){
     .ui-nav{
         display: flex;
@@ -26,11 +28,7 @@
             &__all,
             &__active,
             &__inactive{
-                padding: .5em 1.25em;
-                border: none;
-                border-radius: 8em;
-                border: .2em solid $neutral-200;
-                font-size: 1rem;
+                @include navButtons;
             }
             &__active{
                 margin: 0 .25em;
