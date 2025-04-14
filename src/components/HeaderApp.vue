@@ -1,5 +1,4 @@
-<script setup>
-</script>
+<script setup></script>
 <template>
   <header class="ui-header">
     <img class="ui-header__logo" src="../assets/icons/logo.svg" alt="Logo browser extentions UI" />
@@ -13,7 +12,7 @@ $header-border-radious: 1em;
   display: flex;
   justify-content: space-between;
   padding: 1em;
-  border: 0.175em solid $header-border-color;
+  border: 0.175em solid $neutral-200;
   border-radius: $header-border-radious;
   &__btn {
     padding: 0.5em;
