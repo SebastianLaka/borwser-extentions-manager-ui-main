@@ -14,3 +14,6 @@ $red-700: hsl(3, 77%, 44%);
 
 $dight-Gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
 $dark-Gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+@function changeColor($color) {
+    @return $color;
+  }
