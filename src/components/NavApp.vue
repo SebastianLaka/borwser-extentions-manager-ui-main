@@ -16,6 +16,12 @@
     .ui-nav{
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        &__header{
+            margin-bottom: .5em;
+            font-size: 1.75rem;
+        }
         .ui-nav-button{
             &__all,
             &__active,
@@ -24,8 +30,17 @@
                 border: none;
                 border-radius: 8em;
                 border: .2em solid $neutral-200;
+                font-size: 1rem;
+            }
+            &__active{
+                margin: 0 .25em;
             }
         }
+    }
+}
+@media(min-width: 37.5em){
+    .ui-nav{
+        flex-direction: row;
     }
 }
 </style>
