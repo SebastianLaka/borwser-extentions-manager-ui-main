@@ -1,0 +1,7 @@
+@mixin navButtons {
+  padding: 0.5em 1.25em;
+  border: none;
+  border-radius: 8em;
+  border: 0.2em solid changeColor($neutral-200);
+  font-size: 1rem;
+}
