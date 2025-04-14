@@ -7,12 +7,13 @@
 </template>
 <style scoped lang="scss">
 @import '../assets/sass/colors.scss';
+@import "../assets/sass/border.scss";
 $header-border-radious: 1em;
 .ui-header {
   display: flex;
   justify-content: space-between;
   padding: 1em;
-  border: 0.175em solid $neutral-200;
+  border: $header-border;
   border-radius: $header-border-radious;
   &__btn {
     padding: 0.5em;
