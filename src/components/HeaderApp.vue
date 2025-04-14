@@ -6,7 +6,7 @@
   </header>
 </template>
 <style scoped lang="scss">
-@import '../assets/sass/colors.scss';
+@import "../assets/sass/colors.scss";
 @import "../assets/sass/border.scss";
 $header-border-radious: 1em;
 .ui-header {
