@@ -17,12 +17,17 @@
     border: $header-border;
     border-radius: $header-border-radius;
     &__btn {
-      padding: 0.5em;
-      border-radius: $header-border-radius;
+      padding: 0.5em .75em;
+      border-radius: changeColor($header-border-radius);
       border: none;
-      background-color: #fff;
-      cursor: pointer;
+      background-color: changeColor($neutral-0);
+      outline-color: changeColor($red-400);
+      transition: background-color .3s ease-in-out;
+      &:hover{
+        background-color: changeColor($neutral-300);
+      }
     }
+
   }
 }
 </style>
