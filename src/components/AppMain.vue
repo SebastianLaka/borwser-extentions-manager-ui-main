@@ -1,12 +1,14 @@
 <script setup>
 import HeaderApp from './HeaderApp.vue'
 import NavApp from './NavApp.vue'
+import ExtentionsApp from './ExtentionsApp.vue';
 </script>
 <template>
   <div class="wrapper">
   <main class="app-container">
     <HeaderApp />
     <NavApp />
+    <ExtentionsApp/>
   </main>
 </div>
 </template>
