@@ -13,6 +13,7 @@
 @import '../assets/sass/colors.scss';
 @import '../assets/sass/border.scss';
 @import '../assets/sass/mixins.scss';
+@import '../assets/sass/fonts.scss';
 @media (min-width: 20em) {
   .ui-nav {
     @include flex-row-between;
@@ -20,7 +21,7 @@
     flex-direction: column;
     &__header {
       margin-bottom: 0.5em;
-      font-size: changeFontSize(1.75rem);
+      font-size: changeFontSize(2rem);
     }
     .ui-nav-button {
       &__all,
@@ -47,6 +48,9 @@
 @media (min-width: 37.5em) {
   .ui-nav {
     flex-direction: row;
+    &__header{
+        margin: 0;
+    }
   }
 }
 </style>

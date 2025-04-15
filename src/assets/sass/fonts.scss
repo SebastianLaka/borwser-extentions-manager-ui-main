@@ -1,5 +1,4 @@
 $primary-size: 1rem;
-$secondary-size: 1.75rem;
 @function changeFontSize($fontSize){
     @return $fontSize;
 }
