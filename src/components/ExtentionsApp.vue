@@ -1,4 +1,6 @@
 <script setup>
+import dataJSON from "../assets/data.json";
+console.log(dataJSON)
 </script>
 <template>
 </template>
