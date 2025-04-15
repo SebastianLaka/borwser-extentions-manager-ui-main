@@ -15,8 +15,7 @@
 @import '../assets/sass/mixins.scss';
 @media (min-width: 20em) {
   .ui-nav {
-    display: flex;
-    justify-content: space-between;
+    @include flex-row-between;
     align-items: center;
     flex-direction: column;
     &__header {

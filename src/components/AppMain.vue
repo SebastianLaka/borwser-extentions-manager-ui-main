@@ -3,12 +3,15 @@ import HeaderApp from './HeaderApp.vue'
 import NavApp from './NavApp.vue'
 </script>
 <template>
+  <div class="wrapper">
   <main class="app-container">
     <HeaderApp />
     <NavApp />
   </main>
+</div>
 </template>
 <style scoped lang="scss">
+@import "../assets/sass/wrapper.scss";
 .app-container {
   display: flex;
   flex-direction: column;

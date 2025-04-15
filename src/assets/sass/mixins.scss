@@ -5,3 +5,7 @@
   border: 0.2em solid changeColor($neutral-200);
   font-size: 1rem;
 }
+@mixin flex-row-between {
+  display: flex;
+  justify-content: space-between;
+}

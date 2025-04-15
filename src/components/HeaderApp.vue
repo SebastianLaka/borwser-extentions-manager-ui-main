@@ -8,11 +8,11 @@
 <style scoped lang="scss">
 @import '../assets/sass/colors.scss';
 @import '../assets/sass/border.scss';
+@import '../assets/sass/mixins.scss';
 
 @media (min-width: 20em) {
   .ui-header {
-    display: flex;
-    justify-content: space-between;
+    @include flex-row-between;
     padding: 1em;
     border: $header-border;
     border-radius: $header-border-radius;
