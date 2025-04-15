@@ -40,7 +40,7 @@
         }
       }
       &__active {
-        margin: 0 0.25em;
+        margin: 0 0.6em;
       }
     }
   }
