@@ -1,8 +1,8 @@
 <script setup></script>
 <template>
   <header class="ui-header">
-    <img class="ui-header__logo" src="../assets/icons/logo.svg" alt="Logo browser extentions UI" />
-    <button class="ui-header__btn"><img src="../assets/icons/icon-moon.svg" alt="" /></button>
+    <img class="ui-header__logo" src="../assets/images/logo.svg" alt="Logo browser extentions UI" />
+    <button class="ui-header__btn"><img src="../assets/images/icon-moon.svg" alt="" /></button>
   </header>
 </template>
 <style scoped lang="scss">
