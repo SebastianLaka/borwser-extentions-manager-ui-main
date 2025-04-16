@@ -16,13 +16,13 @@ function getLogoPath(path) {
           <img :src="getLogoPath(data.logo)" :alt="`${data.name}`" />
         </div>
         <div class="extention-description">
-          <p class="extention-description">{{ data.name }}</p>
-          <p class="extention-description">{{ data.description }}</p>
+          <p class="extention-description__name">{{ data.name }}</p>
+          <p class="extention-description__about">{{ data.description }}</p>
         </div>
       </div>
       <div class="extention-button-area">
-        <button>Remove</button>
-        <button>XX</button>
+        <button class="extention-button-area__remove-btn">Remove</button>
+        <button class="extention-button-area__switch-btn">XX</button>
       </div>
     </div>
   </section>
@@ -34,17 +34,42 @@ function getLogoPath(path) {
 @import '../assets/sass/fonts.scss';
 @media (min-width: 20em) {
   .extentions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em 0;
     .extention {
       display: flex;
       flex-direction: column;
       border: $border;
       border-radius: $border-radius;
-     .extention-card{
-      display: flex;
-     }
+      padding: 1em;
+      gap: 1em;
+      .extention-card {
+        display: flex;
+        gap: 1em;
+        .extention-description {
+          &__name {
+            color: changeColor($neutral-900);
+            font-weight: bold;
+            font-size: changeFontSize(1.25rem);
+            padding: 0 0 0.25em 0;
+          }
+          &__about {
+            color: changeColor($neutral-600);
+            max-width: 25ch;
+          }
+        }
+      }
       .extention-button-area {
         display: flex;
         justify-content: space-between;
+        &__remove-btn {
+          padding: 0.4em 0.8em;
+          font-size: changeFontSize(1rem);
+          border: 0.175em solid changeColor($neutral-300);
+          border-radius: $border-radius;
+
+        }
       }
     }
   }
