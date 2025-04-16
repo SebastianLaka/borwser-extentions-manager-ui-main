@@ -85,6 +85,7 @@ function getLogoPath(path) {
     justify-content: space-between;
     .extention {
       width: 23em;
+      justify-content: space-between;
     }
   }
 }
