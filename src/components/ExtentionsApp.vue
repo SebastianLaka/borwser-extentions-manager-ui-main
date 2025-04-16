@@ -1,13 +1,16 @@
 <script setup>
-import dataJSON from "../assets/data.json";
-
+import { ref } from 'vue';
+import JSON from '../assets/data.json'
+const dataJSON = ref(JSON)
 </script>
 <template>
-    <section class="extentions-container">
-    <!-- <div class="extention" v-for="data in dataJSON" :key="data">
-    <p>{{ data.name }}</p> -->
-    </div>        
-    </section>
+  <section class="extentions-container">
+    <div class="extention" v-for="data in dataJSON" :key="data">
+        <div class="extention-description">
+            <p>{{ data.name }}</p>
+        </div>
+    </div>
+  </section>
 </template>
 <style scoped lang="scss">
 @import '../assets/sass/colors.scss';
