@@ -54,7 +54,7 @@ function getLogoPath(path) {
           }
           &__about {
             color: changeColor($neutral-600);
-            max-width: 25ch;
+            min-width: 1ch;
           }
         }
       }
@@ -67,14 +67,35 @@ function getLogoPath(path) {
           border-radius: $border-radius;
           outline-color: changeColor($red-400);
           transition:
-          background-color 0.3s ease-in-out,
-          color 0.3s ease-in-out,
-          border 0.3s ease-in-out;
-        &:hover {
-         @include hover-buttons;
-        }
+            background-color 0.3s ease-in-out,
+            color 0.3s ease-in-out,
+            border 0.3s ease-in-out;
+          &:hover {
+            @include hover-buttons;
+          }
         }
       }
+    }
+  }
+}
+@media (min-width: 48em) {
+  .extentions-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .extention {
+      width: 23em;
+    }
+  }
+}
+@media (min-width: 65em) {
+  .extentions-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5em 0;
+    .extention {
+      width: 21em;
     }
   }
 }
