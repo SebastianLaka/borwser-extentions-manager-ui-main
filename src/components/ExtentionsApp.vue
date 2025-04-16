@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from 'vue'
-import jsonData from '../assets/data.json'
+import { ref } from 'vue';
+import jsonData from '../assets/data.json';
 const dataJSON = ref(jsonData)
 function getLogoPath(path) {
   const filename = path.split('/').pop()
@@ -10,7 +10,7 @@ function getLogoPath(path) {
 
 <template>
   <section class="extentions-container">
-    <div class="extention" v-for="(data, index) in dataJSON" :key="index">
+    <div class="extention" v-for="(data, index) in dataJSON" :key="data">
       <div class="extention-card">
         <div class="extention-image">
           <img :src="getLogoPath(data.logo)" :alt="`${data.name}`" />

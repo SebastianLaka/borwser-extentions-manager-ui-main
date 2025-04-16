@@ -28,6 +28,7 @@
         border 0.3s ease-in-out;
       &:hover {
         @include hover-buttons;
+        background-color: changeColor($neutral-300);
       }
     }
   }
