@@ -9,3 +9,12 @@
   display: flex;
   justify-content: space-between;
 }
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin hover-buttons {
+  background-color: changeColor($red-700);
+  color: changeColor($neutral-0);
+  border-color: changeColor($red-700);
+}

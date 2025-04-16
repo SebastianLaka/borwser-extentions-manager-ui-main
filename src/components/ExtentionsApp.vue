@@ -34,16 +34,14 @@ function getLogoPath(path) {
 @import '../assets/sass/fonts.scss';
 @media (min-width: 20em) {
   .extentions-container {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     gap: 1em 0;
     .extention {
-      display: flex;
-      flex-direction: column;
+      @include flex-column;
       border: $border;
       border-radius: $border-radius;
       padding: 1em;
-      gap: 1em;
+      gap: 1.2em;
       .extention-card {
         display: flex;
         gap: 1em;
@@ -61,14 +59,20 @@ function getLogoPath(path) {
         }
       }
       .extention-button-area {
-        display: flex;
-        justify-content: space-between;
+        @include flex-row-between;
         &__remove-btn {
           padding: 0.4em 0.8em;
           font-size: changeFontSize(1rem);
           border: 0.175em solid changeColor($neutral-300);
           border-radius: $border-radius;
-
+          outline-color: changeColor($red-400);
+          transition:
+          background-color 0.3s ease-in-out,
+          color 0.3s ease-in-out,
+          border 0.3s ease-in-out;
+        &:hover {
+         @include hover-buttons;
+        }
         }
       }
     }

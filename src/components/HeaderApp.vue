@@ -17,17 +17,19 @@
     border: $border;
     border-radius: $border-radius;
     &__btn {
-      padding: 0.5em .75em;
+      padding: 0.5em 0.75em;
       border-radius: changeColor($border-radius);
       border: none;
       background-color: changeColor($neutral-0);
       outline-color: changeColor($red-400);
-      transition: background-color .3s ease-in-out;
-      &:hover{
-        background-color: changeColor($neutral-300);
+      transition:
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out,
+        border 0.3s ease-in-out;
+      &:hover {
+        @include hover-buttons;
       }
     }
-
   }
 }
 </style>
