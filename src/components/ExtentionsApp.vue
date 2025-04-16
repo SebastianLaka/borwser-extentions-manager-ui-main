@@ -37,6 +37,8 @@ function getLogoPath(path) {
     .extention {
       display: flex;
       flex-direction: column;
+      border: $border;
+      border-radius: $border-radius;
      .extention-card{
       display: flex;
      }

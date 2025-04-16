@@ -14,11 +14,11 @@
   .ui-header {
     @include flex-row-between;
     padding: 1em;
-    border: $header-border;
-    border-radius: $header-border-radius;
+    border: $border;
+    border-radius: $border-radius;
     &__btn {
       padding: 0.5em .75em;
-      border-radius: changeColor($header-border-radius);
+      border-radius: changeColor($border-radius);
       border: none;
       background-color: changeColor($neutral-0);
       outline-color: changeColor($red-400);
