@@ -83,8 +83,9 @@ function getLogoPath(path) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 0.5em;
     .extention {
-      width: 23em;
+      width: 49%;
       justify-content: space-between;
     }
   }
@@ -94,7 +95,7 @@ function getLogoPath(path) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 0.5em 0;
+    
     .extention {
       width: 21em;
     }
