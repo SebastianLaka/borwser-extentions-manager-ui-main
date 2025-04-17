@@ -1,6 +1,7 @@
 <script setup>
-import { ref } from 'vue';
-import jsonData from '../assets/data.json';
+import { ref } from 'vue'
+import jsonData from '../assets/data.json'
+import VueToggles from 'vue-toggles'
 const dataJSON = ref(jsonData)
 function getLogoPath(path) {
   const filename = path.split('/').pop()
@@ -10,7 +11,7 @@ function getLogoPath(path) {
 
 <template>
   <section class="extentions-container">
-    <div class="extention" v-for="(data, index) in dataJSON" :key="data">
+    <div class="extention" v-for="data in dataJSON" :key="data">
       <div class="extention-card">
         <div class="extention-image">
           <img :src="getLogoPath(data.logo)" :alt="`${data.name}`" />
@@ -22,7 +23,15 @@ function getLogoPath(path) {
       </div>
       <div class="extention-button-area">
         <button class="extention-button-area__remove-btn">Remove</button>
-        <button class="extention-button-area__switch-btn">XX</button>
+        <VueToggles
+          :value="data.isActive"
+          :height="25"
+          :width="50"
+          checkedBg="hsl(3, 77%, 44%)"
+          uncheckedBg="hsl(0, 0%, 78%)"
+          @click="value = !value"
+          class="outline-btn"
+        />
       </div>
     </div>
   </section>
@@ -60,6 +69,7 @@ function getLogoPath(path) {
       }
       .extention-button-area {
         @include flex-row-between;
+        align-items: center;
         &__remove-btn {
           padding: 0.4em 0.8em;
           font-size: changeFontSize(1rem);
@@ -74,6 +84,9 @@ function getLogoPath(path) {
             @include hover-buttons;
           }
         }
+        .outline-btn:focus {
+          outline: .175em solid changeColor($red-400);
+        }
       }
     }
   }
@@ -85,7 +98,7 @@ function getLogoPath(path) {
     justify-content: space-between;
     gap: 0.5em;
     .extention {
-      width: 49%;
+      width: 49.25%;
       justify-content: space-between;
     }
   }
@@ -95,7 +108,7 @@ function getLogoPath(path) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    
+
     .extention {
       width: 21em;
     }
