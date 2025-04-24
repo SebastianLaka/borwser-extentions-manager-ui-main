@@ -1,15 +1,20 @@
-<script setup></script>
+<script setup>
+import { useDark, useToggle } from '@vueuse/core'
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
+</script>
 <template>
   <header class="ui-header">
     <img class="ui-header__logo" src="../assets/images/logo.svg" alt="Logo browser extentions UI" />
-    <button class="ui-header__btn"><img src="../assets/images/icon-moon.svg" alt="" /></button>
+    <button class="ui-header__btn" >
+      <img src="../assets/images/icon-moon.svg" alt="Dark icon" @click="toggleDark()" />
+    </button>
   </header>
 </template>
 <style scoped lang="scss">
 @import '../assets/sass/colors.scss';
 @import '../assets/sass/border.scss';
 @import '../assets/sass/mixins.scss';
-
 @media (min-width: 20em) {
   .ui-header {
     @include flex-row-between;
