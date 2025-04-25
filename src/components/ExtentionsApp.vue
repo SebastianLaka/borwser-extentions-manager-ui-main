@@ -7,6 +7,7 @@ function getLogoPath(path) {
   const filename = path.split('/').pop()
   return new URL(`../assets/images/${filename}.svg`, import.meta.url).href
 }
+
 </script>
 
 <template>
@@ -31,6 +32,7 @@ function getLogoPath(path) {
           uncheckedBg="hsl(0, 0%, 78%)"
           @click="value = !value"
           class="outline-btn"
+          aria-checked="idDark"
         />
       </div>
     </div>

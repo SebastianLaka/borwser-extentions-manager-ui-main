@@ -22,31 +22,59 @@ import ExtentionsApp from './ExtentionsApp.vue'
   body {
     background: changeColor($dark-Gradient);
     color: changeColor($neutral-0);
-
-    .ui-header {
+  }
+  .ui-header {
+    background-color: changeColor($neutral-800);
+    border: none;
+    &__btn {
       background-color: changeColor($neutral-800);
-      border: none;
-      &__btn{
+    }
+    .sun-img {
+      color: changeColor($neutral-0);
+    }
+  }
+  .ui-nav {
+    .ui-nav-button {
+      &__all,
+      &__active,
+      &__inactive {
         background-color: changeColor($neutral-800);
-      }
-      .sun-img{
-        color: changeColor($neutral-0);
+        color: changeColor($neutral-100);
+        border: none;
+        border: 0.175em solid changeColor($neutral-700);
       }
     }
-    .ui-nav {
-      .ui-nav-button {
-        &__all,
-        &__active,
-        &__inactive {
+  }
+  .extentions-container {
+    .extention {
+      background-color: changeColor($neutral-800);
+      border: none;
+      border: 0.175em solid changeColor($neutral-700);
+      .extention-card {
+        .extention-description {
+          &__name {
+            color: changeColor($neutral-100);
+          }
+          &__about {
+            color: changeColor($neutral-300);
+          }
+        }
+      }
+      .extention-button-area {
+        &__remove-btn {
           background-color: changeColor($neutral-800);
           color: changeColor($neutral-0);
           border: none;
           border: 0.175em solid changeColor($neutral-700);
         }
+        .unchecked-background-color{
+          background-color: changeColor($neutral-800);
+        }
       }
     }
   }
 }
+
 .app-container {
   display: flex;
   flex-direction: column;
