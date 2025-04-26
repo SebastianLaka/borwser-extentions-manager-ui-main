@@ -4,7 +4,7 @@ import  filterExtentions  from '../composables/filterExtentions'
 
 const focusBtn = useTemplateRef('focus-button')
 onMounted(() => {
-  focusBtn.value
+  focusBtn.value.focus()
 })
 
 const { getActive, getInactive, getAll } = filterExtentions()
@@ -24,8 +24,8 @@ function filterAll(){
     <h1 class="ui-nav__header">Extentions List</h1>
     <div class="ui-nav-button">
       <button @click="filterAll" ref="focus-button" class="ui-nav-button__all">All</button>
-      <button @click="filterActive" ref="focus-button" class="ui-nav-button__active">Active</button>
-      <button @click="filterInActive" ref="focus-button" class="ui-nav-button__inactive">Inactive</button>
+      <button @click="filterActive" class="ui-nav-button__active">Active</button>
+      <button @click="filterInActive"  class="ui-nav-button__inactive">Inactive</button>
     </div>
   </nav>
 </template>
