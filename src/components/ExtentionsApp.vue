@@ -1,13 +1,11 @@
 <script setup>
 import VueToggles from 'vue-toggles';
 import  filterExtentions  from '../composables/filterExtentions'
-
 const { filteredDataJSON } = filterExtentions();
 function getLogoPath(path) {
   const filename = path.split('/').pop()
   return new URL(`../assets/images/${filename}.svg`, import.meta.url).href
 }
-
 </script>
 
 <template>
@@ -23,7 +21,7 @@ function getLogoPath(path) {
         </div>
       </div>
       <div class="extention-button-area">
-        <button class="extention-button-area__remove-btn">Remove</button>
+        <button ref="remove-input" class="extention-button-area__remove-btn">Remove</button>
         <VueToggles
           v-model="data.isActive"
           :height="25"

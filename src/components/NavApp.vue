@@ -1,5 +1,12 @@
 <script setup>
+import { useTemplateRef, onMounted } from 'vue'
 import  filterExtentions  from '../composables/filterExtentions'
+
+const focusBtn = useTemplateRef('focus-button')
+onMounted(() => {
+  focusBtn.value
+})
+
 const { getActive, getInactive, getAll } = filterExtentions()
 
 function filterActive() {
@@ -16,9 +23,9 @@ function filterAll(){
   <nav class="ui-nav">
     <h1 class="ui-nav__header">Extentions List</h1>
     <div class="ui-nav-button">
-      <button @click="filterAll" class="ui-nav-button__all">All</button>
-      <button @click="filterActive" class="ui-nav-button__active">Active</button>
-      <button @click="filterInActive" class="ui-nav-button__inactive">Inactive</button>
+      <button @click="filterAll" ref="focus-button" class="ui-nav-button__all">All</button>
+      <button @click="filterActive" ref="focus-button" class="ui-nav-button__active">Active</button>
+      <button @click="filterInActive" ref="focus-button" class="ui-nav-button__inactive">Inactive</button>
     </div>
   </nav>
 </template>
@@ -51,10 +58,14 @@ function filterAll(){
           color: changeColor($neutral-0);
           border-color: changeColor($red-700);
         }
+        &:focus{
+        background-color: changeColor($red-700);
+      }
       }
       &__active {
         margin: 0 0.6em;
       }
+      
     }
   }
 }
