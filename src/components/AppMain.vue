@@ -42,6 +42,14 @@ import ExtentionsApp from './ExtentionsApp.vue'
         color: changeColor($neutral-100);
         border: none;
         border: 0.175em solid changeColor($neutral-700);
+        &:hover {
+          color: changeColor($neutral-800);
+        }
+        &:focus {
+          border: 0.175em solid changeColor($neutral-700);
+          outline: none;
+          color: changeColor($neutral-800);
+        }
       }
     }
   }
@@ -67,7 +75,7 @@ import ExtentionsApp from './ExtentionsApp.vue'
           border: none;
           border: 0.175em solid changeColor($neutral-700);
         }
-        .unchecked-background-color{
+        .unchecked-background-color {
           background-color: changeColor($neutral-800);
         }
       }
