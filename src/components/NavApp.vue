@@ -1,11 +1,24 @@
-<script setup></script>
+<script setup>
+import  filterExtentions  from '../composables/filterExtentions'
+const { getActive, getInactive, getAll } = filterExtentions()
+
+function filterActive() {
+   getActive();
+}
+function filterInActive(){
+  getInactive();
+}
+function filterAll(){
+  getAll()
+}
+</script>
 <template>
   <nav class="ui-nav">
     <h1 class="ui-nav__header">Extentions List</h1>
     <div class="ui-nav-button">
-      <button class="ui-nav-button__all">All</button>
-      <button class="ui-nav-button__active">Active</button>
-      <button class="ui-nav-button__inactive">Inactive</button>
+      <button @click="filterAll" class="ui-nav-button__all">All</button>
+      <button @click="filterActive" class="ui-nav-button__active">Active</button>
+      <button @click="filterInActive" class="ui-nav-button__inactive">Inactive</button>
     </div>
   </nav>
 </template>
