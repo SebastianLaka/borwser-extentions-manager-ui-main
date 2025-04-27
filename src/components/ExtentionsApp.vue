@@ -2,12 +2,21 @@
 import VueToggles from 'vue-toggles';
 import  filterExtentions  from '../composables/filterExtentions'
 const { filteredDataJSON } = filterExtentions();
+
 function getLogoPath(path) {
   const filename = path.split('/').pop()
   return new URL(`../assets/images/${filename}.svg`, import.meta.url).href
 }
-</script>
 
+const emit = defineEmits(['removed'])
+const removeExtention = (item) => {
+  if (filteredDataJSON.value.includes(item) !== -1) {
+    filteredDataJSON.value.splice(0, 1);
+    emit('removed');
+  }
+}
+
+</script>
 <template>
   <section class="extentions-container">
     <div class="extention" v-for="data in filteredDataJSON" :key="data">
@@ -20,8 +29,8 @@ function getLogoPath(path) {
           <p class="extention-description__about">{{ data.description }}</p>
         </div>
       </div>
-      <div class="extention-button-area">
-        <button ref="remove-input" class="extention-button-area__remove-btn">Remove</button>
+      <div  class="extention-button-area">
+        <button @click="removeExtention(data)" class="extention-button-area__remove-btn">Remove</button>
         <VueToggles
           v-model="data.isActive"
           :height="25"
@@ -109,7 +118,6 @@ function getLogoPath(path) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-
     .extention {
       width: 21em;
     }
