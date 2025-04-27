@@ -6,7 +6,6 @@ const focusBtn = ref(null)
 onMounted(() => {
   focusBtn.value?.focus()
 })
-
 const emit = defineEmits(['active', 'delete', 'getAll'])
 const { getActive, getInactive, getAll } = filterExtentions()
 function filterActive() {
