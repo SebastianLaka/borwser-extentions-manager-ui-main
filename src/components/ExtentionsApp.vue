@@ -10,10 +10,8 @@ function getLogoPath(path) {
 
 const emit = defineEmits(['removed'])
 const removeExtention = (item) => {
-  if (filteredDataJSON.value.includes(item) !== -1) {
-    filteredDataJSON.value.splice(0, 1);
+    filteredDataJSON.value = filteredDataJSON.value.filter(ext => ext !== item);
     emit('removed');
-  }
 }
 
 </script>
@@ -115,9 +113,9 @@ const removeExtention = (item) => {
 }
 @media (min-width: 65em) {
   .extentions-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  
     .extention {
       width: 21em;
     }
