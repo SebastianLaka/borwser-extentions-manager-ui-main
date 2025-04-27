@@ -8,7 +8,6 @@ onMounted(() => {
 })
 
 const { getActive, getInactive, getAll } = filterExtentions()
-
 function filterActive() {
    getActive();
 }

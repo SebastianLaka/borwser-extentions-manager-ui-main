@@ -82,6 +82,7 @@ function getLogoPath(path) {
             border 0.3s ease-in-out;
           &:hover {
             @include hover-buttons;
+            color: changeColor($neutral-800);
           }
         }
         .outline-btn:focus {
