@@ -1,23 +1,19 @@
 <script setup>
-import { ref } from 'vue';
-import VueToggles from 'vue-toggles';
-import  filterExtentions  from '../composables/filterExtentions'
-const { filteredDataJSON } = filterExtentions();
+import VueToggles from 'vue-toggles'
+import filterExtentions from '../composables/filterExtentions'
+import useExtentions from '../composables/filterExtentions'
+const { filteredDataJSON } = filterExtentions()
+
 function getLogoPath(path) {
   const filename = path.split('/').pop()
   return new URL(`../assets/images/${filename}.svg`, import.meta.url).href
 }
-const removeExtention = (item) => {
-  const index = filteredDataJSON.value.indexOf(item);
-  if (index !== -1) {
-    filteredDataJSON.value.splice(index, 1);
-  
-  }
-};
+const { removeExtention, handleActive } = useExtentions()
 </script>
 <template>
   <section class="extentions-container">
-    <div class="extention" v-for="data in filteredDataJSON" :key="data">
+    <!-- tu dales :key="data", trzeba odwolac sie do czegos specyficznego, ELEMENTU np. data.id -->
+    <div class="extention" v-for="data in filteredDataJSON" :key="data.name">
       <div class="extention-card">
         <div class="extention-image">
           <img :src="getLogoPath(data.logo)" :alt="`${data.name}`" />
@@ -27,15 +23,17 @@ const removeExtention = (item) => {
           <p class="extention-description__about">{{ data.description }}</p>
         </div>
       </div>
-      <div  class="extention-button-area">
-        <button  @click="removeExtention(data)" class="extention-button-area__remove-btn">Remove</button>
+      <div class="extention-button-area">
+        <button @click="removeExtention(data)" class="extention-button-area__remove-btn">
+          Remove
+        </button>
         <VueToggles
           v-model="data.isActive"
           :height="25"
           :width="50"
           checkedBg="hsl(3, 77%, 44%)"
           uncheckedBg="hsl(0, 0%, 78%)"
-          @click="value = !value"
+          @click="handleActive(data)"
           class="outline-btn"
           aria-checked="idDark"
         />
@@ -93,7 +91,7 @@ const removeExtention = (item) => {
           }
         }
         .outline-btn:focus {
-          outline: .175em solid changeColor($red-400);
+          outline: 0.175em solid changeColor($red-400);
         }
       }
     }
@@ -115,7 +113,7 @@ const removeExtention = (item) => {
   .extentions-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-  
+
     .extention {
       width: 21em;
     }
