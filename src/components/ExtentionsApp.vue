@@ -17,7 +17,7 @@ const removeExtention = (item) => {
 </script>
 <template>
   <section class="extentions-container">
-    <div class="extention" v-for="data in filteredDataJSON" :key="data">
+    <div class="extention" v-for="data in filteredDataJSON" :key="data.name">
       <div class="extention-card">
         <div class="extention-image">
           <img :src="getLogoPath(data.logo)" :alt="`${data.name}`" />
@@ -35,7 +35,7 @@ const removeExtention = (item) => {
           :width="50"
           checkedBg="hsl(3, 77%, 44%)"
           uncheckedBg="hsl(0, 0%, 78%)"
-          @click="value = !value"
+          @click="handleActive(data)"
           class="outline-btn"
           aria-checked="idDark"
         />
