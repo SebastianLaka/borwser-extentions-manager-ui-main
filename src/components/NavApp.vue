@@ -1,33 +1,20 @@
 <script setup>
-import { ref, onMounted } from 'vue'
 import  filterExtentions  from '../composables/filterExtentions'
-
-const focusBtn = ref(null)
+import { onMounted, useTemplateRef } from 'vue'
+const focusBtn = useTemplateRef('focusBtn')
 onMounted(() => {
-  focusBtn.value?.focus()
+  focusBtn.value.focus()
 })
-const emit = defineEmits(['active', 'delete', 'getAll'])
 const { getActive, getInactive, getAll } = filterExtentions()
-function filterActive() {
-   getActive();
-   emit('active')
-}
-function filterInActive(){
-  getInactive();
-  emit('delete')
-}
-function filterAll(){
-  getAll()
-  emit('getAll')
-}
+
 </script>
 <template>
   <nav class="ui-nav">
     <h1 class="ui-nav__header">Extentions List</h1>
     <div class="ui-nav-button">
-      <button @click="filterAll" ref="focusBtn" class="ui-nav-button__all">All</button>
-      <button @click="filterActive" class="ui-nav-button__active">Active</button>
-      <button @click="filterInActive"  class="ui-nav-button__inactive">Inactive</button>
+      <button @click="getAll" ref="focusBtn" class="ui-nav-button__all">All</button>
+      <button @click="getActive" class="ui-nav-button__active">Active</button>
+      <button @click="getInactive"  class="ui-nav-button__inactive">Inactive</button>
     </div>
   </nav>
 </template>

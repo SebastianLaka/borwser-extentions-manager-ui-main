@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue';
 import VueToggles from 'vue-toggles';
 import  filterExtentions  from '../composables/filterExtentions'
 const { filteredDataJSON } = filterExtentions();
@@ -28,7 +27,9 @@ const removeExtention = (item) => {
         </div>
       </div>
       <div  class="extention-button-area">
-        <button  @click="removeExtention(data)" class="extention-button-area__remove-btn">Remove</button>
+        <button  @click="removeExtention(data)" class="extention-button-area__remove-btn">
+          Remove
+        </button>
         <VueToggles
           v-model="data.isActive"
           :height="25"
