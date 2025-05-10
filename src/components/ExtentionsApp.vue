@@ -1,21 +1,18 @@
 <script setup>
 import VueToggles from 'vue-toggles';
-import  filterExtentions  from '../composables/filterExtentions'
-const { filteredDataJSON } = filterExtentions();
+import { ref } from 'vue';
+import filterExtentions from '../composables/filterExtentions'
+import useExtentions from '../composables/filterExtentions'
+const { filteredDataJSON } = filterExtentions()
 function getLogoPath(path) {
   const filename = path.split('/').pop()
   return new URL(`../assets/images/${filename}.svg`, import.meta.url).href
 }
-const removeExtention = (item) => {
-  const index = filteredDataJSON.value.indexOf(item);
-  if (index !== -1) {
-    filteredDataJSON.value.splice(index, 1);
-  
-  }
-};
+const { removeExtention, handleActive } = useExtentions();
+const showDiv = ref()
 </script>
 <template>
-  <section class="extentions-container">
+  <section class="extentions-container" >
     <div class="extention" v-for="data in filteredDataJSON" :key="data.name">
       <div class="extention-card">
         <div class="extention-image">
