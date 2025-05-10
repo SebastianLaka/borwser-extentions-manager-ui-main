@@ -2,6 +2,7 @@
 import HeaderApp from './HeaderApp.vue'
 import NavApp from './NavApp.vue'
 import ExtentionsApp from './ExtentionsApp.vue'
+
 </script>
 <template>
   <div class="wrapper">
@@ -81,6 +82,15 @@ import ExtentionsApp from './ExtentionsApp.vue'
       }
     }
   }
+ .empty-info {
+  text-align: center;
+  margin-top: 0.5em;
+  padding: 1em 0;
+  border-top: 0.1em solid changeColor($neutral-0);
+  border-bottom: 0.1em solid changeColor($neutral-0);
+  color: changeColor($neutral-0);
+  font-size: 1rem;
+}
 }
 
 .app-container {
