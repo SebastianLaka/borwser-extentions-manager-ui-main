@@ -1,6 +1,6 @@
 <script setup>
-import VueToggles from 'vue-toggles';
-import { ref } from 'vue';
+import VueToggles from 'vue-toggles'
+import { ref } from 'vue'
 import filterExtentions from '../composables/filterExtentions'
 import useExtentions from '../composables/filterExtentions'
 const { filteredDataJSON } = filterExtentions()
@@ -8,37 +8,40 @@ function getLogoPath(path) {
   const filename = path.split('/').pop()
   return new URL(`../assets/images/${filename}.svg`, import.meta.url).href
 }
-const { removeExtention, handleActive } = useExtentions();
-const showDiv = ref()
+const { removeExtention, handleActive } = useExtentions()
 </script>
 <template>
-  <section class="extentions-container" >
-    <div class="extention" v-for="data in filteredDataJSON" :key="data.name">
-      <div class="extention-card">
-        <div class="extention-image">
-          <img :src="getLogoPath(data.logo)" :alt="`${data.name}`" />
+  <div v-if="filteredDataJSON.length === 0" class="empty-extentions">
+    <p class="empty-extentions__info">No more extentions</p>
+  </div>
+
+  <section class="extentions-container" v-else>
+      <li class="extention" v-for="data in filteredDataJSON" :key="data.name">
+        <div class="extention-card">
+          <div class="extention-image">
+            <img :src="getLogoPath(data.logo)" :alt="`${data.name}`" />
+          </div>
+          <div class="extention-description">
+            <p class="extention-description__name">{{ data.name }}</p>
+            <p class="extention-description__about">{{ data.description }}</p>
+          </div>
         </div>
-        <div class="extention-description">
-          <p class="extention-description__name">{{ data.name }}</p>
-          <p class="extention-description__about">{{ data.description }}</p>
+        <div class="extention-button-area">
+          <button @click="removeExtention(data)" class="extention-button-area__remove-btn">
+            Remove
+          </button>
+          <VueToggles
+            v-model="data.isActive"
+            :height="25"
+            :width="50"
+            checkedBg="hsl(3, 77%, 44%)"
+            uncheckedBg="hsl(0, 0%, 78%)"
+            @click="handleActive(data)"
+            class="outline-btn"
+            aria-checked="idDark"
+          />
         </div>
-      </div>
-      <div  class="extention-button-area">
-        <button  @click="removeExtention(data)" class="extention-button-area__remove-btn">
-          Remove
-        </button>
-        <VueToggles
-          v-model="data.isActive"
-          :height="25"
-          :width="50"
-          checkedBg="hsl(3, 77%, 44%)"
-          uncheckedBg="hsl(0, 0%, 78%)"
-          @click="handleActive(data)"
-          class="outline-btn"
-          aria-checked="idDark"
-        />
-      </div>
-    </div>
+      </li>
   </section>
 </template>
 <style scoped lang="scss">
@@ -47,6 +50,23 @@ const showDiv = ref()
 @import '../assets/sass/mixins.scss';
 @import '../assets/sass/fonts.scss';
 @media (min-width: 20em) {
+  .list-enter-active {
+    transition: opacity .5s ease-in;
+  }
+  .list-leave-active {
+    opacity: 0;
+  }
+  .empty-extentions {
+    text-align: center;
+    margin-top: 0.5em;
+    padding: 1em 0;
+    border-top: 0.1em solid changeColor($neutral-0);
+    border-bottom: 0.1em solid changeColor($neutral-0);
+    &__info {
+      color: changeColor($neutral-0);
+      font-size: 1rem;
+    }
+  }
   .extentions-container {
     @include flex-column;
     gap: 1em 0;
@@ -91,7 +111,7 @@ const showDiv = ref()
           }
         }
         .outline-btn:focus {
-          outline: .175em solid changeColor($red-400);
+          outline: 0.175em solid changeColor($red-400);
         }
       }
     }
@@ -113,7 +133,7 @@ const showDiv = ref()
   .extentions-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-  
+
     .extention {
       width: 21em;
     }

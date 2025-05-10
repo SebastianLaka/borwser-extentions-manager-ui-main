@@ -31,7 +31,12 @@ const getAll = () => {
   loadData()
   filteredDataJSON.value = [...dataJSON.value]
 }
-
+const noExtentions = () =>{
+  loadData();
+  if(filteredDataJSON.value.length = 0){
+    return 'There are no extentiosns';
+  }
+}
 const removeExtention = (item) => {
   const localStorageData = JSON.parse(localStorage.getItem('extensions')) || []
   const index = localStorageData.findIndex((extension) => extension.name === item.name)
@@ -52,9 +57,8 @@ const handleActive = (item) => {
     }
     return extension
   })
-
   localStorage.setItem('extensions', JSON.stringify(updatedItems))
-  loadData()
+  
 }
 
 export default function useExtentions() {
@@ -71,5 +75,6 @@ export default function useExtentions() {
     filteredDataJSON,
     removeExtention,
     handleActive,
+    noExtentions
   }
 }
