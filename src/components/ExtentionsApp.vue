@@ -11,12 +11,13 @@ function getLogoPath(path) {
 const { removeExtention, handleActive } = useExtentions()
 </script>
 <template>
+  
   <div v-if="filteredDataJSON.length === 0" class="empty-extentions">
     <p class="empty-extentions__info">No more extentions</p>
   </div>
-
   <section class="extentions-container" v-else>
-      <li class="extention" v-for="data in filteredDataJSON" :key="data.name">
+    <transition-group name="extentions" tag="div" class="transition-extentions">
+      <div class="extention" v-for="data in filteredDataJSON" :key="data.name">
         <div class="extention-card">
           <div class="extention-image">
             <img :src="getLogoPath(data.logo)" :alt="`${data.name}`" />
@@ -41,7 +42,8 @@ const { removeExtention, handleActive } = useExtentions()
             aria-checked="idDark"
           />
         </div>
-      </li>
+      </div>
+    </transition-group>
   </section>
 </template>
 <style scoped lang="scss">
@@ -50,12 +52,6 @@ const { removeExtention, handleActive } = useExtentions()
 @import '../assets/sass/mixins.scss';
 @import '../assets/sass/fonts.scss';
 @media (min-width: 20em) {
-  .list-enter-active {
-    transition: opacity .5s ease-in;
-  }
-  .list-leave-active {
-    opacity: 0;
-  }
   .empty-extentions {
     text-align: center;
     margin-top: 0.5em;
@@ -67,7 +63,9 @@ const { removeExtention, handleActive } = useExtentions()
       font-size: 1rem;
     }
   }
-  .extentions-container {
+  
+  .extentions-container,
+  .transition-extentions {
     @include flex-column;
     gap: 1em 0;
     .extention {
@@ -118,11 +116,13 @@ const { removeExtention, handleActive } = useExtentions()
   }
 }
 @media (min-width: 48em) {
-  .extentions-container {
+  .extentions-container,
+  .transition-extentions {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 0.5em;
+    border: none;
     .extention {
       width: 49.25%;
       justify-content: space-between;
@@ -130,13 +130,21 @@ const { removeExtention, handleActive } = useExtentions()
   }
 }
 @media (min-width: 65em) {
-  .extentions-container {
+  .extentions-container,
+  .transition-extentions {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-
     .extention {
       width: 21em;
     }
   }
+}
+.extentions-enter-active,
+.extentions-leave-active {
+  transition: all 0.5s ease;
+}
+.extentions-enter-from,
+.extentions-leave-to {
+  opacity: 0;
 }
 </style>
