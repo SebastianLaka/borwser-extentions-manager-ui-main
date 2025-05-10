@@ -20,5 +20,13 @@ const props = defineProps({
   border-bottom: 0.1em solid changeColor($neutral-200);
   color: changeColor($neutral-900);
   font-size: 1rem;
+  animation: show .3s ease-in-out;
+}
+@keyframes show{
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
 }
 </style>
