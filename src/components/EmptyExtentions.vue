@@ -1,0 +1,24 @@
+<script setup>
+import { ref } from 'vue'
+const props = defineProps({
+  isEmpty: String,
+})
+const show = ref(true)
+</script>
+
+<template>
+      <p class="empty-info">{{ props.isEmpty }}</p>
+</template>
+
+<style scoped lang="scss">
+@import '../assets/sass/colors.scss';
+.empty-info {
+  text-align: center;
+  margin-top: 0.5em;
+  padding: 1em 0;
+  border-top: 0.1em solid changeColor($neutral-0);
+  border-bottom: 0.1em solid changeColor($neutral-0);
+  color: changeColor($neutral-0);
+  font-size: 1rem;
+}
+</style>

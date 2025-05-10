@@ -1,6 +1,6 @@
 <script setup>
 import VueToggles from 'vue-toggles'
-import { ref } from 'vue'
+import EmptyExtentions from './EmptyExtentions.vue'
 import filterExtentions from '../composables/filterExtentions'
 import useExtentions from '../composables/filterExtentions'
 const { filteredDataJSON } = filterExtentions()
@@ -12,9 +12,7 @@ const { removeExtention, handleActive } = useExtentions()
 </script>
 <template>
   
-  <div v-if="filteredDataJSON.length === 0" class="empty-extentions">
-    <p class="empty-extentions__info">No more extentions</p>
-  </div>
+<EmptyExtentions v-if="filteredDataJSON.length === 0" isEmpty="No more extentions" />
   <section class="extentions-container" v-else>
     <transition-group name="extentions" tag="div" class="transition-extentions">
       <div class="extention" v-for="data in filteredDataJSON" :key="data.name">
@@ -52,17 +50,7 @@ const { removeExtention, handleActive } = useExtentions()
 @import '../assets/sass/mixins.scss';
 @import '../assets/sass/fonts.scss';
 @media (min-width: 20em) {
-  .empty-extentions {
-    text-align: center;
-    margin-top: 0.5em;
-    padding: 1em 0;
-    border-top: 0.1em solid changeColor($neutral-0);
-    border-bottom: 0.1em solid changeColor($neutral-0);
-    &__info {
-      color: changeColor($neutral-0);
-      font-size: 1rem;
-    }
-  }
+
   
   .extentions-container,
   .transition-extentions {
@@ -141,7 +129,7 @@ const { removeExtention, handleActive } = useExtentions()
 }
 .extentions-enter-active,
 .extentions-leave-active {
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 .extentions-enter-from,
 .extentions-leave-to {
