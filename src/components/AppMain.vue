@@ -2,7 +2,6 @@
 import HeaderApp from './HeaderApp.vue'
 import NavApp from './NavApp.vue'
 import ExtentionsApp from './ExtentionsApp.vue'
-
 </script>
 <template>
   <div class="wrapper">
@@ -29,6 +28,9 @@ import ExtentionsApp from './ExtentionsApp.vue'
     border: none;
     &__btn {
       background-color: changeColor($neutral-800);
+      &:focus {
+        border: 0.175em solid changeColor($red-700);outline: none;
+      }
     }
     .sun-img {
       color: changeColor($neutral-0);
@@ -76,21 +78,23 @@ import ExtentionsApp from './ExtentionsApp.vue'
           border: none;
           border: 0.175em solid changeColor($neutral-700);
         }
-        .unchecked-background-color {
-          background-color: changeColor($neutral-800);
+        &__remove-btn:focus {
+          border: 0.175em solid changeColor($red-700);
+          outline: none;
         }
+       
       }
     }
   }
- .empty-info {
-  text-align: center;
-  margin-top: 0.5em;
-  padding: 1em 0;
-  border-top: 0.1em solid changeColor($neutral-0);
-  border-bottom: 0.1em solid changeColor($neutral-0);
-  color: changeColor($neutral-0);
-  font-size: 1rem;
-}
+  .empty-info {
+    text-align: center;
+    margin-top: 0.5em;
+    padding: 1em 0;
+    border-top: 0.1em solid changeColor($neutral-0);
+    border-bottom: 0.1em solid changeColor($neutral-0);
+    color: changeColor($neutral-0);
+    font-size: 1rem;
+  }
 }
 
 .app-container {
