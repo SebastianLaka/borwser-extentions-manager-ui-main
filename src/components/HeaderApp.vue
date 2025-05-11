@@ -2,7 +2,8 @@
 import { useDark, useToggle } from '@vueuse/core'
 import Logo from './icons/Logo.vue'
 import ThemeIcon from './icons/ThemeIcon.vue'
-const isDark = useDark()
+
+const isDark = useDark({ disableTransition: false })
 const toggleDark = useToggle(isDark)
 </script>
 <template>

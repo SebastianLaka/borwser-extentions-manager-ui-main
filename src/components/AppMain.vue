@@ -18,10 +18,12 @@ import ExtentionsApp from './ExtentionsApp.vue'
 @import '../assets/sass/colors.scss';
 @import '../assets/sass/border.scss';
 @import '../assets/sass/mixins.scss';
+
 .dark {
   body {
     background: changeColor($dark-Gradient);
     color: changeColor($neutral-0);
+    transition: background-color .5s ease-in-out, color 0.5s ease-in-out;
   }
   .ui-header {
     background-color: changeColor($neutral-800);
