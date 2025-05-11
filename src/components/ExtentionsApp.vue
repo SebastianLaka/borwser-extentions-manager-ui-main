@@ -11,7 +11,6 @@ function getLogoPath(path) {
 const { removeExtention, handleActive } = useExtentions()
 </script>
 <template>
-  
 <EmptyExtentions v-if="filteredDataJSON.length === 0" isEmpty="No more extentions" />
   <section class="extentions-container" v-else>
     <transition-group name="extentions" tag="div" class="transition-extentions">
@@ -34,7 +33,7 @@ const { removeExtention, handleActive } = useExtentions()
             :height="25"
             :width="50"
             checkedBg="hsl(3, 77%, 44%)"
-            uncheckedBg="hsl(0, 0%, 78%)"
+            uncheckedBg="hsl(226, 11%, 37%)"
             @click="handleActive(data)"
             class="outline-btn"
             aria-checked="idDark"
@@ -50,8 +49,6 @@ const { removeExtention, handleActive } = useExtentions()
 @import '../assets/sass/mixins.scss';
 @import '../assets/sass/fonts.scss';
 @media (min-width: 20em) {
-
-  
   .extentions-container,
   .transition-extentions {
     @include flex-column;
