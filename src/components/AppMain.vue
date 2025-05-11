@@ -96,7 +96,6 @@ import ExtentionsApp from './ExtentionsApp.vue'
     font-size: 1rem;
   }
 }
-
 .app-container {
   display: flex;
   flex-direction: column;

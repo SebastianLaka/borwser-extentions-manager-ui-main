@@ -33,7 +33,7 @@ const { removeExtention, handleActive } = useExtentions()
             :height="25"
             :width="50"
             checkedBg="hsl(3, 77%, 44%)"
-            uncheckedBg="hsl(226, 11%, 37%)"
+            uncheckedBg="hsl(0, 0%, 78%)"
             @click="handleActive(data)"
             class="outline-btn"
             aria-checked="idDark"
@@ -131,5 +131,8 @@ const { removeExtention, handleActive } = useExtentions()
 .extentions-enter-from,
 .extentions-leave-to {
   opacity: 0;
+}
+.toggle-animate {
+  animation: slide 0.4s ease-in-out;
 }
 </style>
